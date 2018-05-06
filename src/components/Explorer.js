@@ -13,9 +13,9 @@ class Explorer extends Component {
             <div className="caption">
               <h3>People</h3>
               <hr/>
-                {/*
-                  Add Link to '/people/'
-                  */}
+              <Link to="/people/">
+                <button className="btn btn-primary" >Let&s go!</button>
+              </Link>
             </div>
           </div>
 
@@ -26,9 +26,9 @@ class Explorer extends Component {
             <div className="caption">
               <h3>Starships</h3>
               <hr/>
-              {/*
-                Add Link to '/starships/'
-                */}
+              <Link to="/starships/">
+                <button className="btn btn-primary" >Let&s go!</button>
+              </Link>
             </div>
           </div>
 
@@ -39,9 +39,9 @@ class Explorer extends Component {
             <div className="caption">
               <h3>Films</h3>
               <hr/>
-                {/*
-                  Add Link to '/films/'
-                  */}
+              <Link to="/films/">
+                <button className="btn btn-primary" >Let&s go!</button>
+              </Link>
             </div>
           </div>
 
