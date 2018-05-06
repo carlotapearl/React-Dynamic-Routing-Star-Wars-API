@@ -13,19 +13,11 @@ class List extends Component {
       let films = people.films.map((films)=>{
         // We use 'endpoint' to extract the enpoint from the API url.
         let endpoint = films.substr(films.indexOf("/api/") + 5);
-        return <li className="list-group-item" key={films}>
-            {/*
-              Add Link to '/details/' + endpoint
-              */}
-          </li>
+        return <li className="list-group-item" key={films}><Link to={`/details/${endpoint}`}>{endpoint}</Link></li>    
       })
       let starships = people.starships.map((starships)=>{
         let endpoint = starships.substr(starships.indexOf("/api/") + 5 );
-        return <li className="list-group-item" key={starships}>
-          {/*
-            Add Link to '/details/' + endpoint
-            */}
-          </li>
+        return <li className="list-group-item" key={starships}><Link to={`/details/${endpoint}`}>{endpoint}</Link></li>
       })
       return (
         <div key={people.name} className="col-lg-10 col-lg-offset-1 card">
