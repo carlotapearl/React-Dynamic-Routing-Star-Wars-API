@@ -14,17 +14,13 @@ class List extends Component {
         // We use 'endpoint' to extract the enpoint from the API url.
         let endpoint = people.substr(people.indexOf("/api/") + 5);
         return <li className="list-group-item" key={people}>
-          {/*
-            Add Link to '/details/' + endpoint
-            */}
+          <Link to={`/details/${endpoint}`}>{endpoint}</Link>
         </li>
       })
       let starships = films.starships.map((starships) => {
         let endpoint = starships.substr(starships.indexOf("/api/") + 5);
         return <li className="list-group-item" key={starships}>
-          {/*
-            Add Link to '/details/' + endpoint
-            */}
+          <Link to={`/details/${endpoint}`}>{endpoint}</Link>
         </li>
       })
 
@@ -102,7 +98,6 @@ class Films extends Component {
 
   render() {
     console.log('render', this.state)
-    // Your render should consist of the BaseLayout with the following children componenets: Appetizers, Entres, and Dessert.
     // Each component needs to receive state via props.
     return (
       <div className="app-body offset col-lg-10 col-lg-offset-1">
