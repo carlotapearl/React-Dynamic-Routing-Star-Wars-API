@@ -61,15 +61,19 @@ There are detailed instructions in each file.
 4. Fire up the server - `npm start`
 
 ## Mockup  
-Home Page
+## Home Page
 
 ![Home Page Mockup screen shot](https://github.com/carlotapearl/React-Dynamic-Routing-Star-Wars-API/blob/master/images/home.png)
-People
+
+## People
+
 ![People Mockup screen shot](https://github.com/carlotapearl/React-Dynamic-Routing-Star-Wars-API/blob/master/images/people.png)
-Films
+
+## Films
 ![Films Mockup screen shot](https://github.com/carlotapearl/React-Dynamic-Routing-Star-Wars-API/blob/master/images/films.png)
-Starships
-![Starships Mockup screen shot](https://github.com/carlotapearl/React-Dynamic-Routing-Star-Wars-API/blob/master/images/startships.png)
+
+## Starships
+![Starships Mockup screen shot](https://github.com/carlotapearl/React-Dynamic-Routing-Star-Wars-API/blob/master/images/starships.png)
 
 ## Your role as a student
 Articulate their ideas as best you can. Try to facilitate effective collaboration with your paired student. Be willing to debate strategies for how best to approach your challenge, but don’t allow endless debate to keep you from making progress. Keep your eye on the clock and try to work yourself through the challenge at a reasonable pace. You and your partner should share the responsibility for authoring ideas and code. Finish your challenge and make certain that you call talk someone through the logic and strategies implemented by your group.
