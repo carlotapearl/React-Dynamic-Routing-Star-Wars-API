@@ -1,63 +1,47 @@
 import React, { Component } from 'react';
-import { Link }from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class List extends Component {
   render(){
-    console.log('props', this.props.people)
-    let data = this.props.people;
-    let List = data.map((people)=>{
-      let url = people.url;
-      // We use 'endpoint' to extract the enpoint from the API url.
-      let endpoint = url.substr(url.indexOf("/api/") + 5);
-      let films = people.films.map((films)=>{
-        // We use 'endpoint' to extract the enpoint from the API url.
+    console.log('props', this.props.starships)
+    let data = this.props.starships;
+    let List = data.map((starships)=>{
+      let films = starships.films.map((films)=>{
         let endpoint = films.substr(films.indexOf("/api/") + 5);
-        return <li className="list-group-item" key={films}><Link to={`/details/${endpoint}`}>{endpoint}</Link></li>    
-      })
-      let starships = people.starships.map((starships)=>{
-        let endpoint = starships.substr(starships.indexOf("/api/") + 5 );
-        return <li className="list-group-item" key={starships}><Link to={`/details/${endpoint}`}>{endpoint}</Link></li>
+        return <li className="list-group-item" key={films}><Link to={`/details/${endpoint}`}>{endpoint}</Link></li>
       })
       return (
-        <div key={people.name} className="col-lg-10 col-lg-offset-1 card">
-          <div className="col-lg-4">
+        <div key={starships.name} className="col-lg-10 col-lg-offset-1 card">
+          <div className="col-lg-6">
             <div className="profile">
-              <i className="fa fa-user" aria-hidden="true"></i>
+              <i className="fa fa-space-shuttle" aria-hidden="true"></i>
               <h3 className = "headings">
-                  {people.name}
+                 {starships.name}
               </h3>
-              <h4 className = "sub-headings">API Endpoint: {endpoint}</h4>
               <hr/>
               <h4 className = "sub-headings">Profile</h4>
               <dl className="dl-horizontal">
-                <dt>Birth Year</dt>
-                <dd>{people.birth_year}</dd>
-                <dt>Gender</dt>
-                <dd>{people.gender}</dd>
-                <dt>Mass</dt>
-                <dd>{people.mass}</dd>
-                <dt>Height</dt>
-                <dd>{people.height}</dd>
-                <dt>Eye Color</dt>
-                <dd>{people.eye_color}</dd>
-                <dt>Hair Color</dt>
-                <dd>{people.hair_color}</dd>
+                <dt>MGLT</dt>
+                <dd>{starships.MGLT}</dd>
+                <dt>Manufacturer</dt>
+                <dd>{starships.manufacturer}</dd>
+                <dt>Model</dt>
+                <dd>{starships.model}</dd>
+                <dt>Class</dt>
+                <dd>{starships.starship_class}</dd>
+                <dt>Cargo</dt>
+                <dd>{starships.cargo_capacity}</dd>
+                <dt>Length</dt>
+                <dd>{starships.length}</dd>
               </dl>
             </div>
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-6">
             <h4 className = "sub-headings">Film Endpoints</h4>
             <hr/>
             <ul className="list-group">
               {films}
-            </ul>
-          </div>
-          <div className="col-lg-3">
-            <h4 className = "sub-headings">Starship Endpoints</h4>
-            <hr/>
-            <ul className="list-group">
-              {starships}
             </ul>
           </div>
         </div>
@@ -66,7 +50,7 @@ class List extends Component {
     return(
       <div className="row">
         <div className="col-lg-10 col-lg-offset-1">
-          <h1 className="headings">People</h1>
+          <h1 className="headings">Starships</h1>
           <hr/>
         </div>
         {List}
@@ -75,33 +59,36 @@ class List extends Component {
   }
 }
 
-class People extends Component {
+class Starships extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'people': [],
+      'starships': [],
     }
   }
 
   componentDidMount(){
-    let url ="https://swapi.co/api/people/";
+    let url ="https://swapi.co/api/starships/";
     // Fetch data from API
     fetch(url).then((response) => {
       return response.json();
     }).then((data) => {
-      console.log(data)
-      this.setState({people: data.results})
+      this.setState({starships: data.results})
     });
   }
 
 
   render() {
+    console.log('render', this.state)
+    // Your render should consist of the BaseLayout with the following children componenets: Appetizers, Entres, and Dessert.
+    // Each component needs to receive state via props.
     return (
       <div className="app-body offset col-lg-10 col-lg-offset-1">
-        <List people={this.state.people}/>
+        <List starships={this.state.starships}/>
       </div>
     );
   }
 }
 
-export default People;
+export default Starships;
+
