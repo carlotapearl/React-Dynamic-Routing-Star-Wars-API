@@ -104,13 +104,15 @@ class Details extends Component {
   }
 
   componentDidMount() {
-    {/*
-      Create an 'endpoint' variable set to the 'endpoint' property found in the params.
-      Create an 'id' variable set to the 'id' property found in the params.
-      Create a 'url' variable set to 'https://swapi.com/api/', plus the two variables from above.
-      Fetch
-      Set state for both 'details' (for rendering endpoint data) and 'endpoint' (to set conditional rendering)
-      */}
+    let endpoint = this.props.match.params.endpoint;
+    let id = this.props.match.params.id
+    console.log(this.props)
+    let url = "https://swapi.co/api/" + endpoint + "/" + id;
+    fetch(url).then((response) => { // Fetch data from API
+      return response.json();
+    }).then((data) => {
+      this.setState({details: data, endpoint: endpoint})
+    });
   }
 
   render() {
@@ -120,10 +122,8 @@ class Details extends Component {
           <div className="col-lg-8 col-lg-offset-2">
               <h1>Category: {this.props.match.params.endpoint}</h1>
           </div>
-          {/*
-            Pass the following props to View: details and endpoint.
-            */}
-          <View/>
+          /*Pass the following props to View: details and endpoint.*/
+          <View details={this.state.details} endpoint={this.state.endpoint}/>
         </div>
       </div>
     );
